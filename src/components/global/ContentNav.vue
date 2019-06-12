@@ -29,21 +29,20 @@ export default {
 <style>
   .content-nav {
     margin: 0;
-    background-color: #fff7e2;
+    /* background-color: #fff7e2; */
     overflow-y:auto; 
+    margin-top: 0.2rem;
   }
   .nav-items{
+    margin: 0 0.5rem;
     color: white;
     text-align: center;
-    background-color: #ccb66e;
+    background-color: #3e7e91;
     cursor: pointer;
     user-select: none; 
-    border-bottom: #ad964a solid 0.1rem;
-    border-radius: 0.3rem;
+    border-bottom: #131463 solid 0.1rem;
     margin-bottom: 0.2rem;
-    margin-top: 0.1rem;
-    margin-right: 0.3rem;
-    margin-left: 0.3rem;
+    border-radius: 0.3rem;
   } 
   .nav-item {
     cursor: pointer;
@@ -51,7 +50,7 @@ export default {
     margin-bottom: 0.1rem;
   }
   .nav-items:hover {
-    background-color: #917d3e;
+    background-color: #133c48;
   }
 
   .nav-item > a {

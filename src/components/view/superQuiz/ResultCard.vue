@@ -2,10 +2,9 @@
   div.result-card-layout(
     :style="{backgroundColor: latestResult ? win.color : lose.color}"
     @click="startGame"
-  )
+  ) 
     button.btn(
       :class="latestResult ? win.button : lose.button"
-      
     ) {{latestResult ? win.message : lose.message}} 
 
 </template>
@@ -21,7 +20,7 @@ export default {
     },
 
     lose: {
-      message: "Ups, tryagain. ^^",
+      message: "Ups, try again. ^^",
       color: '#f3c1c6',
       button: 'btn-danger'
     }

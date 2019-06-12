@@ -47,7 +47,9 @@
       p Like the vue components, transitions have lifecycle hooks too. You can trigger JS methods using them.  
       br
       
-      button.btn.btn-primary(@click="load = !load") {{load ? "Hide" : "Show"}}
+      button.btn.btn-primary(
+        @click="load = !load"
+      ) {{load ? "Hide" : "Show"}}
       
     
       transition(
@@ -62,7 +64,10 @@
         :css="false"
         @leave-cancelled="leaveCancelled"
       )
-        div.alert.alert-info(v-if="load" style="align-self: center") JS Animation Lifecyle Hooks (Open your console!)
+        div.alert.alert-info(
+          v-if="load" 
+          style="align-self: center"
+        ) JS Animation Lifecyle Hooks (Open your console!)
 
       hr
       h1 Transition Groups

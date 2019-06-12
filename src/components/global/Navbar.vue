@@ -1,21 +1,56 @@
 <template lang="pug">
-  
-  div.nav-bar-container
-    
-    div.nav-bar  
-      
-      div.home-button(@click="$router.push('/')") 
-        p KIRPAT 
-      
-      div.dropdown
-        div.dropbtn Examples
-        div.dropdown-content
-          a(@click="$router.push('/quotes')") Quotes 
-          a(@click="$router.push('/routing')") Routing
-          a(@click="$router.push('/fuzzy-search')") Fuzzy Search
-          a(@click="$router.push('/animations')") Animations
-          a(@click="$router.push('/super-quiz')") Super Quiz
+  transition(
+    mode="out-in" 
+    enter-active-class="animated slideInDown faster"
+    leave-active-class="animated slideOutUp faster"
+  )
+    div.nav-bar-container(v-if="showNavbar")  
+      div.nav-bar  
+        div.home-button(@click="$router.push('/')") 
+          p KIRPAT 
+        div.dropdown
+          div.dropbtn Examples
+          div.dropdown-content
+            a(@click="$router.push('/quotes')") Quotes 
+            a(@click="$router.push('/routing')") Routing
+            a(@click="$router.push('/fuzzy-search')") Fuzzy Search
+            a(@click="$router.push('/animations')") Animations
+            a(@click="$router.push('/super-quiz')") Super Quiz
+            a(@click="$router.push('/axios')") Axios
 </template>
+
+<script>
+export default {
+  data:() => ({
+    showNavbar: true,
+  }),
+  
+  mounted () {
+    window.addEventListener('scroll', this.onScroll)
+  },
+
+  beforeDestroy () {
+    window.removeEventListener('scroll', this.onScroll)
+  },
+
+  methods: {
+    onScroll () {
+     const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop
+      if (currentScrollPosition < 0) {
+        return
+      }
+
+      //Prevents Hyper Sensitive Hide/Show
+      if (Math.abs(currentScrollPosition - this.lastScrollPosition) < 60) {
+        return
+      }
+      this.showNavbar = currentScrollPosition < this.lastScrollPosition
+      this.lastScrollPosition = currentScrollPosition
+    }
+  }
+}
+</script>
+
 
 <style scoped>
   * {margin: 0;}

@@ -1,4 +1,4 @@
-# vue-quotes
+# KIRPAT's Vue Blog - Alpha
 
 ## Project setup
 ```

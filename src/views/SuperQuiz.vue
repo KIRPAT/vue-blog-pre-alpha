@@ -1,7 +1,12 @@
 <template lang="pug"> 
     div.super-quiz-layout
       div.super-quiz-container
-        transition(mode="out-in")  
+        transition(
+          mode="out-in"
+          appear 
+          enter-active-class="animated fadeIn faster"
+          leave-active-class="animated fadeOut faster"
+        )  
           component(
             :is="isGameActive ? quizComponent : resultComponent"
           )

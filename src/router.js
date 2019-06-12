@@ -15,6 +15,7 @@ const Routing = () => import('./views/Routing')
   const RouteGuards = () => import('./components/view/routing/RouteGuards')
 const Animations = () => import('./views/Animations')
 const SuperQuiz = () => import('./views/SuperQuiz')
+const Axios = () => import('./views/Axios')
 const FourOhFour = () => import('./components/global/redirects/FourOhFour')
 
 Vue.use(Router)
@@ -123,6 +124,12 @@ export default new Router({
       name: 'Super Quiz',
       path: '/super-quiz',
       component: SuperQuiz,
+    },
+
+    {
+      name: 'Axios',
+      path: '/axios',
+      component: Axios,
     },
 
     {
