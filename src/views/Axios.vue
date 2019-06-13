@@ -30,14 +30,21 @@
       h1 Axios in Vuex
       br
       p 
-        | Keep your API link in the input field, do not delete, we still need it.  
+        | Keep your API link in the input field (above), do not delete, we still need it.  
       p 
-        | This is how you keep axios responses.
+        | The POST Response is going to be stored in the vuex instance. 
+        | The rest is easy, you can access it from anywhere using vuex getters.
       button.btn.btn-primary(@click="axiosPost([firebaseUrl, dummyItems])") POST
+      hr
+      p 
+        | Just a quick note: I will be testing Authentication in the following example, "Authentication".
+        | The read/write permissions will be different. 
+        | You will find further instructions there, don't worry. 
+      
 </template>
 
 <script>
-import axios from 'axios'
+import axios from '@/middleware/authAxios'
 import {mapActions} from 'vuex'
 export default {
   data: () => ({
@@ -55,10 +62,15 @@ export default {
     dummyPost(){
       this.isPostSent = true;
       axios.post(this.firebaseUrl, this.dummyItems)
-        .then(res => console.log(res))
-        .catch(err => console.log(err)) 
+        .then(res => console.log({
+          message: 'Dummy Axios POST Response', 
+          response: res,
+        }))
+        .catch(err => console.log({
+          message: 'Dummy Axios POST Error', 
+          error: err,
+        })) 
     },
-    
     ...mapActions(['axiosPost']),
   }
 }

@@ -16,6 +16,7 @@ const Routing = () => import('./views/Routing')
 const Animations = () => import('./views/Animations')
 const SuperQuiz = () => import('./views/SuperQuiz')
 const Axios = () => import('./views/Axios')
+const Authentication = () => import('./views/Authentication')
 const FourOhFour = () => import('./components/global/redirects/FourOhFour')
 
 Vue.use(Router)
@@ -130,6 +131,12 @@ export default new Router({
       name: 'Axios',
       path: '/axios',
       component: Axios,
+    },
+
+    {
+      name: 'Authentication',
+      path: '/authentication',
+      component: Authentication,
     },
 
     {

@@ -13,11 +13,14 @@ export const axios = {
     axiosPost: (state,payload) => {
       console.log(payload)
       axiosClient.post(payload[0], payload[1])
-        .then(res => {
-          console.log(res)
-          state.response = res
-        })
-        .catch(err => console.log(err)) 
+        .then(res => console.log({
+          message: 'Vuex Axios POST Response', 
+          response: res,
+        }))
+        .catch(err => console.log({
+          message: 'Vuex Axios POST Error', 
+          error: err,
+        })) 
     },
   },
 

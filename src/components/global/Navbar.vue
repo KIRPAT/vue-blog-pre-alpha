@@ -10,31 +10,41 @@
           p KIRPAT 
         div.dropdown
           div.dropbtn Examples
-          div.dropdown-content(@click="test")
+          div.dropdown-content
             a(@click="pushRouteHideNav('/quotes', $event)") Quotes 
             a(@click="pushRouteHideNav('/routing', $event)") Routing
             a(@click="pushRouteHideNav('/fuzzy-search', $event)") Fuzzy Search
             a(@click="pushRouteHideNav('/animations', $event)") Animations
             a(@click="pushRouteHideNav('/super-quiz', $event)") Super Quiz
             a(@click="pushRouteHideNav('/axios', $event)") Axios
+            a(@click="pushRouteHideNav('/authentication', $event)") Authentication
 </template>
 
 <script>
 export default {
-  data:() => ({
+  data: () => ({
     showNavbar: true,
   }),
   
-  mounted () {
+  mounted() {
     window.addEventListener('scroll', this.onScroll)
   },
 
-  beforeDestroy () {
+  beforeDestroy() {
     window.removeEventListener('scroll', this.onScroll)
   },
 
   methods: {
-    fix(element){
+    /*
+      This is a Single Page App. 
+      When you use SPA routes, you do not get another HTML page. 
+      You just infect/eject pages you already got.
+      
+      If you are on mobile, nav items do not lose focus because of that.
+      You change the page, but the nav alement stays there. 
+      mobileFix() is a dirty way to fix that. 
+    */    
+    mobileFix(element){
       var el = element;
       var par = el.parentNode;
       var next = el.nextSibling;
@@ -42,12 +52,8 @@ export default {
       setTimeout(function() {par.insertBefore(el, next);}, 400)
     },
 
-    test(){
-
-    },
-
     pushRouteHideNav(route, event){
-      this.fix(event.target)
+      this.mobileFix(event.target)
       this.$router.push(route)
     },
 
@@ -74,6 +80,7 @@ export default {
   .nav-bar-container {
     position: fixed;
     width: 100%;
+    
     z-index: 3;
   }
 
@@ -83,14 +90,22 @@ export default {
     grid-template-rows: 3rem;
     grid-template-areas: ". home-button dropdown";
     height: 3rem;
-    background-color: #4c8492
+    background-color: #4c8492;
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.20);
   }
 
 
   @media only screen and (min-width: 600px){
+    .nav-bar-container{
+      width: 98%;
+      margin-left: 1%;
+    }
+
     .nav-bar {
-      grid-template-columns: 10% 8rem 10px auto 20%;
-      grid-template-areas: ". home-button . dropdown .";
+      grid-template-columns: auto 8rem 10px auto auto;
+      grid-template-areas: ". home-button . dropdown auto";
+      border-bottom-left-radius: 0.5rem;
+      border-bottom-right-radius: 0.5rem;
     }
   }
 
@@ -118,21 +133,22 @@ export default {
   }
 
   .dropbtn {
-  display: flex;
-  background-color: #4c8492;
-  color: white;
-  height: 100%;
-  width: 6rem;
-  font-size: 16px;
-  border: none;
-  user-select: none;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    background-color: #4c8492;
+    color: white;
+    height: 100%;
+    width: 6rem;
+    font-size: 16px;
+    border: none;
+    user-select: none;
+    align-items: center;
+    justify-content: center;
   }
 
   .dropdown {
     position: relative;
-    display: inline-block;
+    width: 1rem;
+    
   }
 
   .dropdown-content {

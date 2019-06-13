@@ -3,7 +3,7 @@
     div.container
       img(src="@/assets/rotterdam.jpg.png")
       div.text
-        h3 Wellcome to KIRPAT's <br> Vue practices home page. 
+        h2 Hello there! <br> This is KIRPAT. 
         p
           | I have been practicing Vue, CSS (with grids) and a little bit of Bootstrap.
           | Take a look at the examples from the navigation. <br>
@@ -26,8 +26,7 @@ export default {
     grid-area: a;
     display: grid;
     grid-template-columns: minmax(0, auto);
-    margin-top: 2rem;
-    
+    margin-top: 2rem;    
   }
 
   .container > p {
@@ -57,6 +56,7 @@ export default {
       display: grid;
       grid-template-columns:[b] auto [c] auto;
       grid-column-gap: 1rem;
+      margin-top: 7rem;
     }
 
     .container > img {

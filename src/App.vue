@@ -1,7 +1,11 @@
 <template lang="pug">
   div#app
     Navbar.le-navbar
-    transition(name="fade" mode="out-in")
+    transition(
+      mode="out-in"
+      enter-active-class="animated fadeIn faster"
+      leave-active-class="animated fadeOutDown faster"
+    )
       router-view.content
 </template>
 
