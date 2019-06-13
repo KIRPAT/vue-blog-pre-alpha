@@ -10,13 +10,13 @@
           p KIRPAT 
         div.dropdown
           div.dropbtn Examples
-          div.dropdown-content
-            a(@click="$router.push('/quotes')") Quotes 
-            a(@click="$router.push('/routing')") Routing
-            a(@click="$router.push('/fuzzy-search')") Fuzzy Search
-            a(@click="$router.push('/animations')") Animations
-            a(@click="$router.push('/super-quiz')") Super Quiz
-            a(@click="$router.push('/axios')") Axios
+          div.dropdown-content(@click="test")
+            a(@click="pushRouteHideNav('/quotes', $event)") Quotes 
+            a(@click="pushRouteHideNav('/routing', $event)") Routing
+            a(@click="pushRouteHideNav('/fuzzy-search', $event)") Fuzzy Search
+            a(@click="pushRouteHideNav('/animations', $event)") Animations
+            a(@click="pushRouteHideNav('/super-quiz', $event)") Super Quiz
+            a(@click="pushRouteHideNav('/axios', $event)") Axios
 </template>
 
 <script>
@@ -34,12 +34,28 @@ export default {
   },
 
   methods: {
+    fix(element){
+      var el = element;
+      var par = el.parentNode;
+      var next = el.nextSibling;
+      par.removeChild(el);
+      setTimeout(function() {par.insertBefore(el, next);}, 400)
+    },
+
+    test(){
+
+    },
+
+    pushRouteHideNav(route, event){
+      this.fix(event.target)
+      this.$router.push(route)
+    },
+
     onScroll () {
      const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop
       if (currentScrollPosition < 0) {
         return
       }
-
       //Prevents Hyper Sensitive Hide/Show
       if (Math.abs(currentScrollPosition - this.lastScrollPosition) < 60) {
         return
@@ -112,41 +128,40 @@ export default {
   user-select: none;
   align-items: center;
   justify-content: center;
-}
+  }
 
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
 
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
 
-.dropdown-content a:hover {
-  user-select: none;
-  cursor: pointer;
-  background-color: #f1f1f1
-}
+  .dropdown-content a:hover {
+    user-select: none;
+    cursor: pointer;
+    background-color: #f1f1f1
+  }
 
-.dropdown:hover .dropdown-content {
-  display: block;
-}
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
 
-.dropdown:hover .dropbtn {
-  background-color: #599cad;
-}
-  
+  .dropdown:hover .dropbtn {
+    background-color: #599cad;
+  }
 </style>

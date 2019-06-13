@@ -4,17 +4,63 @@
       h1 Axios
       br 
       p 
-        | Open your console, and click the button! 
-      p  
-        | I have installed Axios, but the vue instance is not yet "using" it!
-        | I'm importing it in the component each time I'm needing it.
-        | That will change! 
-      button.btn.btn-primary Console 
+        | I'm using a Axios as the HTTP client, and Firebase as my dummy API. 
+        | Read/Write permissions are open to everyone. (Which means, no authentication.) 
+        | Copy/Paste your own firebase URL with "the same permission". 
+      code API Link: 
+        <pre> {{urlLink}} </pre>
+      code Permission: 
+        <pre> {{permission}} </pre>
+      div.key
+        strong Paste your API link here.
+        br
+        div.firebase 
+          input(v-model="firebaseUrl")
+          button.btn.btn-success(@click="dummyPost") POST
+        
+        transition(
+          mode="out-in"
+          enter-active-class="animated fadeInDown faster"
+          leave-active-class="animated fadeOut faster"
+        )
+          div(v-if="isPostSent")
+            br
+            strong Check your console.
+      hr
+      h1 Axios in Vuex
+      br
+      p 
+        | Keep your API link in the input field, do not delete, we still need it.  
+      p 
+        | This is how you keep axios responses.
+      button.btn.btn-primary(@click="axiosPost([firebaseUrl, dummyItems])") POST
 </template>
 
 <script>
+import axios from 'axios'
+import {mapActions} from 'vuex'
 export default {
-
+  data: () => ({
+    isPostSent: false,
+    urlLink: `https://<your-database>.firebaseio.com/<your-key>.json`,
+    permission:`{"rules": {".read": true, ".write": true}}`,
+    firebaseUrl: '/test.json',
+    dummyItems: {
+      num: 1,
+      number: 2
+    },
+  }),
+  
+  methods: {
+    dummyPost(){
+      this.isPostSent = true;
+      axios.post(this.firebaseUrl, this.dummyItems)
+        .then(res => console.log(res))
+        .catch(err => console.log(err)) 
+    },
+    
+    ...mapActions(['axiosPost']),
+  }
 }
 </script>
 
@@ -26,7 +72,8 @@ export default {
 
   .layout{
     display: grid;
-    grid-template-columns: 2% [a]auto 2%
+    grid-template-columns:[a] auto;
+    overflow-y: auto;
   }
   
   /* Tablet/PC */
@@ -39,9 +86,8 @@ export default {
   .container{
     grid-area: a;
     display: grid;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    margin-top: 5rem;
+    grid-template-columns: minmax(0, auto);
+    margin-top: 2rem;
   }
 
   .container > p {
@@ -57,4 +103,30 @@ export default {
     text-align: center;
 
   }
+
+  hr {height: 0.1rem;}
+
+  code {
+    overflow-x: auto;
+  }
+
+  pre {
+    background-color:rgb(238, 238, 238);
+  }
+
+  .firebase {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    grid-column-gap: 0.3rem;
+  }
+  .firebase > input {
+    border-radius: 0.3rem;
+    padding: 0.3rem;
+  }
+
+  .key{
+    background-color:lightgreen; 
+    padding: 1rem; 
+    border-radius: 0.5rem;
+  } 
 </style>

@@ -50,7 +50,7 @@ export default {
     margin-bottom: 0.1rem;
   }
   .nav-items:hover {
-    background-color: #133c48;
+    background-color: #599cad;
   }
 
   .nav-item > a {

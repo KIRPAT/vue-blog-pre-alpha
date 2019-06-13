@@ -23,7 +23,7 @@ export default {
   @media only screen and (min-width: 600px){
     .home-page-container {
       display: grid;
-      grid-template-columns: auto [home-page]500px auto;
+      grid-template-columns: auto [home-page]auto auto;
     }  
   }
 </style>

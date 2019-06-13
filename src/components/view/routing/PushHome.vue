@@ -2,8 +2,7 @@
   div.pushHome
     h3 Push Home
     p Press the button to push Home page!
-    div.btn.btn-secondary(@click="navigateToHome") 
-      Go Home 
+    div.btn.btn-secondary(@click="navigateToHome") Go Home 
 </template>
 
 <script>
