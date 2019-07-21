@@ -15,15 +15,14 @@ export default {
 }
 </script>
 
-<style scoped>
-  .pushHome{
-    margin-top: 1rem;
-    text-align: center;
-  }
-  .box{
-    width: 200px;
-    height: 200px;
-    background-color: black;
-  }
-
+<style lang="sass" scoped>
+  @import "@/components/global/_reset.sass"
+  @include bootstrap-button-reset
+  .pushHome
+    margin-top: 1rem
+    text-align: center
+  .box
+    width: 200px
+    height: 200px
+    background-color: black
 </style>

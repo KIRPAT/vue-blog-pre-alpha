@@ -2,6 +2,7 @@
   div.scroll-behaviour-container
     div.scroll-behaviour
       div.center-items
+        h1 Scroll Behaviour
         p
           |I haven't implemented it, but the default 
           |browser behaviour of scrolling to the "# tag" of the 
@@ -28,47 +29,45 @@ export default {
 }
 </script>
 
-<style scoped>
-  *{margin: 0}
+<style lang="sass" scoped>
+  @import "@/components/global/_reset.sass"
+  @include margin-reset
 
-  .scroll-behaviour {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-template-areas: ". center .";
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-  }
+  .scroll-behaviour
+    display: grid
+    grid-template-columns: auto auto auto
+    grid-template-areas: ". center ."
+    margin-bottom: 1rem
 
-  @media only screen and (min-width: 600px) {
-    .scroll-behaviour {
-      grid-template-columns: auto 30rem auto;    
-    }
-  }
+  @media only screen and (min-width: 600px)
+    .scroll-behaviour
+      grid-template-columns: auto 30rem auto
 
-  .center-items{
-    grid-area: center;
-    text-align: left;
-    text-indent: 2rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
-  }
+  .center-items
+    grid-area: center
+    text-align: left
+    text-indent: 2rem
+    margin-left: 1rem
+    margin-right: 1rem
 
-  .tall-box{
-    height: 2000px;
-    max-width: 100%;
-    margin: 0;
-    background-color: rgb(197, 156, 181);
-  }
+  .tall-box
+    height: 2000px
+    max-width: 100%
+    margin: 0
+    background-color: rgb(197, 156, 181)
 
-  h1 {
-    text-indent: 0;
-    text-align: center;
-  }
+  h1
+    text-indent: 0
+    text-align: center
 
-  p {
-    max-width: 100%;
-  }
+  p
+    max-width: 100%
 
-  hr {width: 100%; height: 1rem;}
-  #the-end,#the-start {margin-top: 1rem;}
+  hr 
+    width: 100%
+    height: 1rem
+
+  #the-end,
+  #the-start 
+    margin-top: 1rem
 </style>

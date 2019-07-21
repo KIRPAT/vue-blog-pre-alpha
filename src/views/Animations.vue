@@ -81,8 +81,7 @@
           name="slide"
         )
           li.list-group-item(
-            v-for="(number, index) in numbers" 
-            style="user-select:none; cursor:pointer"
+            v-for="(number, index) in numbers"
             @click="removeNumber(index)"
             :key="number"
           ) {{number}}
@@ -130,82 +129,78 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="sass" scoped>
+  @import "@/components/global/_reset.sass"
+  @include bootstrap-button-reset
   /*Mobile*/
-  .animations-layout{
-    display: grid;
+  .animations-layout
+    display: grid
     grid-template-columns: 1% [content]auto 1%
-  }
+  /*Tablet & PC*/
+  @media only screen and (min-width: 600px)
+    .animations-layout
+      grid-template-columns: auto [content]500px auto
   
-  /*Tablet/PC*/
-  @media only screen and (min-width: 600px){
-    .animations-layout {
-      grid-template-columns: auto [content]500px auto;
-    }  
-  }
+  .animations-view-container
+    margin-top: 3rem
+    grid-area: content
+    text-align: center
+    p 
+      text-align: left
+      text-indent: 1.5rem
+      width: 80%
+      margin: 0 auto
+    h1 
+      margin-bottom: 2rem
+
+  hr
+    width: 90%
+    height: 0.1rem
+    margin: 0 auto
+    margin-top: 1rem
+    margin-bottom: 1rem
   
-  .animations-view-container {
-    margin-top: 3rem;
-    grid-area: content;
-    text-align: center;
-  }
+  .alert
+    width: 80%
+    margin: 1rem auto
 
-  .animations-view-container > p {
-    text-align: left;
-    text-indent: 1.5rem;
-    width: 80%;
-    margin: 0 auto;
-  }
+  .animation-block
+    margin-top: 1rem 
+    margin-bottom: 2rem
+    background-color: beige
+    padding: 2rem 0
+    border-radius: 1rem
 
-  .animations-view-container > h1 {
-    margin-bottom: 2rem;
-  }
-
-  hr {
-    width: 90%;
-    height: 0.1rem;
-    margin: 0 auto;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-  }
+  #css-block
+    height: 20rem
   
-  .alert {
-    width: 80%;
-    margin: 1rem auto;
-  }
-
-  .animation-block{
-    margin-top: 1rem; 
-    margin-bottom: 2rem;
-    background-color: beige;
-    padding: 2rem 0;
-    border-radius: 1rem;
-  }
-
-  #css-block {
-    height: 20rem;  
-  }
-
-
-
+  .list-group-item
+    user-select: none 
+    cursor: pointer
+  
   /*Animations*/
-
-  /*Slide*/
-  .slide-enter-active {
-    animation: slide-in 0.3s ease-out forwards;
-  }
-  .slide-leave-active {
-    animation: slide-out 0.1s ease-out forwards;
-  }
-  .slide-move {
-    transition: transform 0.5s;
-  }
-  @keyframes slide-in {
-    from {opacity: 0; transform: translateY(-2rem)}
-    to {opacity: 1; transform: translateY(0)}    
-  }
-  @keyframes slide-out {
-    from {opacity: 1; transform: translateY(0)}
-    to {opacity: 0; transform: translateY(-2rem)}    
-  }
+  // Slide with Animate.css
+  .slide
+    &-enter-active
+      animation: slide-in 0.3s ease-out forwards
+    &-leave-active
+      animation: slide-out 0.1s ease-out forwards
+    &-move
+      transition: transform 0.5s
+  
+  // Vanilla CSS  
+  @keyframes slide-in
+    from
+      opacity: 0
+      transform: translateY(-2rem)
+    to 
+      opacity: 1
+      transform: translateY(0)    
+  @keyframes slide-out
+    from 
+      opacity: 1
+      transform: translateY(0)
+    to 
+      opacity: 0 
+      transform: translateY(-2rem)
 </style>

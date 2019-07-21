@@ -5,8 +5,7 @@
   ) 
     button.btn(
       :class="latestResult ? win.button : lose.button"
-    ) {{latestResult ? win.message : lose.message}} 
-
+    ) {{latestResult ? win.message : lose.message}}
 </template>
 
 <script>
@@ -44,19 +43,17 @@ export default {
 }
 </script>
 
-<style scoped>
-  .result-card-layout{
-    display: grid;
-    grid-template-rows: [a] 3.5rem [b] 3rem  [c] 3.5rem [d];
-    border-radius: 0.5rem;
-  }
+<style lang="sass" scoped>
+  .result-card-layout
+    display: grid
+    grid-template-rows: [a] 3.5rem [b] 3rem  [c] 3.5rem [d]
+    border-radius: 0.5rem
 
-  button {
-    grid-row-start: b;
-    margin: 0 auto;
-  }
+  button
+    grid-row-start: b
+    margin: 0 auto
 
-  .btn:active {
-    border: none;
-  }
+  .btn
+    &:active
+      border: none
 </style>

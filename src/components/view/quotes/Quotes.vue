@@ -30,33 +30,28 @@ export default {
 }
 </script>
 
-<style scoped>
-  .quotes-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-gap: 0.3rem;
-  }
+<style lang="sass" scoped>
+  .quotes-container
+    display: grid
+    grid-template-columns: 1fr
+    grid-gap: 0.3rem
 
-  .practice-note {
-    text-align: center;
-    margin-left: 1rem;
-    margin-right: 1rem;
-  }
+  .practice-note
+    text-align: center
+    margin-left: 1rem
+    margin-right: 1rem
 
-  .le-quote {
-    display: flex;
-    align-items: center;
-    background-color: #eeeded;
-    justify-content: center;
-  }
-  @media only screen and (min-width: 600px){
-    .quotes-container {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-  @media only screen and (min-width: 768px){
-    .quotes-container {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
+  .le-quote
+    display: flex
+    align-items: center
+    background-color: #eeeded
+    justify-content: center
+
+  @media only screen and (min-width: 600px)
+    .quotes-container 
+      grid-template-columns: 1fr 1fr
+    
+  @media only screen and (min-width: 768px)
+    .quotes-container 
+      grid-template-columns: 1fr 1fr
 </style>

@@ -13,33 +13,22 @@
       hr
 </template>
 
-<script>
-export default {
+<style lang="sass" scoped>
+  .named-route-view-container
+    display: grid
+    grid-template-columns: auto auto auto
+    grid-template-areas: ". center ."
+    margin-right: 1rem
+    margin-left: 1rem
+    margin-top: 1rem
+    margin-bottom: 1rem
 
-}
-</script>
+  @media only screen and (min-width: 600px)
+    .named-route-view-container 
+      grid-template-columns: auto 30rem auto
 
-<style scoped>
-  
-  .named-route-view-container {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-template-areas: ". center .";
-    margin-right: 1rem;
-    margin-left: 1rem;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-  }
-
-  @media only screen and (min-width: 600px) {
-    .named-route-view-container {
-      grid-template-columns: auto 30rem auto;    
-    }
-  }
-
-  .named-route-view-elements {
-    grid-area: center;
-    text-align: left;
-    text-indent: 2rem;
-  }
+  .named-route-view-elements
+    grid-area: center
+    text-align: left
+    text-indent: 2rem
 </style>

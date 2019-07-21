@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import axios from '@/middleware/authAxios'
+import axios from 'axios' //Global one.
 import {mapActions} from 'vuex'
 export default {
   data: () => ({

@@ -38,78 +38,64 @@ export default {
 }
 </script>
 
-<style scoped>
-  *{margin: 0}
+<style lang="sass" scoped>
+  @import "@/components/global/_reset.sass" 
+  @include margin-reset
+  @include bootstrap-button-reset
 
-  .button-container {
-    display: grid;
-    grid-template-columns: [end] auto;
-  }
+  //Mobile
+  .button-container 
+    display: grid
+    grid-template-columns: [end] auto
+  //Tablet
+  @media only screen and (min-width: 600px)
+    .button-container 
+      display: grid
+      grid-template-columns: auto [end] 15rem auto
+  //PC
+  @media screen and (min-width: 768px) 
+    .button-container
+      display: grid
+      grid-template-columns: auto [end] 7rem
   
-  @media only screen and (min-width: 600px) {
-   .button-container {
-    display: grid;
-    grid-template-columns: auto [end] 15rem auto;
-    }
-  }
-  @media screen and (min-width: 768px) {
-   .button-container {
-    display: grid;
-    grid-template-columns: auto [end] 7rem;
-    } 
-    
-  }
-  
-  .new-quote-container > p {
-    margin-top: 1rem;
-    text-align: center;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 2rem;
-  }
+  .new-quote-container 
+    p 
+      margin-top: 1rem
+      text-align: center
+      font-family: 'Times New Roman', Times, serif
+      font-size: 2rem
 
-  h5 {
+  h5 
+    background-color: #eeee
+    margin-top: 1rem
+    text-align: center
+    margin-bottom: 1rem
+    padding: 1rem
+    border-radius: 0.5rem
+
+  .guide-link
+    text-decoration: none 
+    cursor: pointer
+    font-size: 1.2rem
+    background-color: white 
+    padding: 0.5rem
+    margin-bottom: 1rem
+    border-radius: 0.3rem
+
+  .practice-note
     background-color: #eeee;
-    margin-top: 1rem;
-    text-align: center;
-    margin-bottom: 1rem;
-    padding: 1rem;
-    border-radius: 0.5rem;
-  }
+    text-align: center
+    margin-bottom: 1rem
+    padding: 0.3rem
+    border-radius: 0.5rem
 
-  .guide-link {
-    text-decoration: none; 
-    cursor: pointer; 
-    font-size: 1.2rem; 
-    background-color: white; 
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-    border-radius: 0.3rem;
-  }
-
-  .practice-note {
-   background-color: #eeee;
-    text-align: center;
-    margin-bottom: 1rem;
-    padding: 0.3rem;
-    border-radius: 0.5rem;
-  }
-
-  .btn:focus{
-    outline: none !important;
-    box-shadow: none !important;
-  }
-
-  .btn {
-    grid-area: end;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .btn-primary {
-    background-color: rgb(12, 126, 88);
-    border-color: aquamarine
-  }
-  .btn-primary:hover {
-    background-color: rgb(22, 206, 144);
-  }
+  .btn
+    grid-area: end
+    margin-top: 0.5rem
+    margin-bottom: 0.5rem
+    &-primary
+      background-color: rgb(12, 126, 88)
+      border-color: aquamarine
+      &:hover
+        background-color: rgb(22, 206, 144)
 </style>

@@ -4,24 +4,16 @@
       slot
 </template>
 
-<script>
-export default {
-
-}
-</script>
-
-<style scoped>
-  .panel-body {
-    cursor: pointer;
-    user-select: none;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 1rem;
-    color: #6e6e6e;
-    background-color: #eeeded;
-    text-align: center;
-  }
-  
-  .panel-body:hover {
-    background-color: #ffe2e2
-  }
+<style lang="sass" scoped>
+  .panel
+    &-body 
+      cursor: pointer
+      user-select: none
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+      font-size: 1rem
+      color: #6e6e6e
+      background-color: #eeeded
+      text-align: center
+      &:hover 
+        background-color: #ffe2e2
 </style>

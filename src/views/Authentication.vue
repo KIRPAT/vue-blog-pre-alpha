@@ -12,16 +12,37 @@
       code Permission: 
         <pre> {{permission}} </pre>
       p 
-        |Now, I think we can use Firebase SDK and sign a new user.
-        |Let's see:  
+        |I think we are ready to use 
+        a(href="https://firebase.google.com/docs/reference/rest/auth#section-create-email-password" target="_blank") Firebase SDK  
+        |and sign a new user.
       
+      div.form
+        div.field-pair
+          h5 Email:
+          input(v-model="form.email")
+        div.field-pair
+          h5 Password:
+          input(v-model="form.password")
+        button(@click="singUp" class="btn-signup") Sign Up
+
 </template>
 
 <script>
+import axios from '@/middleware/authAxios'
+import { mapActions } from 'vuex'
 export default {
   data: () => ({
     permission: `{"rules": {".read": "auth != null", ".write": true}}`,
-  })
+    form: {
+      email: '',
+      password: '',
+    }
+  }),
+  methods: {
+    ...mapActions([
+      ""
+    ])
+  }
 }
 </script>
 
@@ -37,12 +58,6 @@ export default {
     overflow-y: auto;
   }
   
-  /* Tablet/PC */
-  @media only screen and (min-width: 600px){
-    .layout {
-      grid-template-columns: auto [a]500px auto;
-    }  
-  }
 
   .container{
     grid-area: a;
@@ -80,6 +95,7 @@ export default {
     grid-template-columns: 4fr 1fr;
     grid-column-gap: 0.3rem;
   }
+ 
   .firebase > input {
     border-radius: 0.3rem;
     padding: 0.3rem;
@@ -90,4 +106,60 @@ export default {
     padding: 1rem; 
     border-radius: 0.5rem;
   } 
+
+  .form{
+    background-color: cadetblue;  
+    border-radius: 0.5rem;
+  }
+
+  .field-pair {
+    width: 95%;
+    margin: 0 auto;  
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  input {
+    width: 100%;
+    border-radius: 0.3rem;
+    padding-left: 0.5rem;
+  }
+
+  .btn-signup {
+    display: inline-block;
+    margin: 0 auto;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem 0.7rem;
+    border-radius: 0.2rem;
+    outline: none;
+    background-color: rgb(36, 80, 85);
+    color: white;
+  }
+
+  h5 {
+    margin: 0;
+    color: white;
+  }
+  
+  /* Tablet/PC */
+  @media only screen and (min-width: 600px){
+    
+    .form{
+      display: grid;
+    }
+    
+    .layout {
+      grid-template-columns: auto [a]500px auto;
+    }
+
+    .field-pair {
+      width: 95%;
+      margin: 0 auto; 
+      display: grid;
+      grid-template-columns: 25% 75%;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+    }  
+  }
+
 </style>

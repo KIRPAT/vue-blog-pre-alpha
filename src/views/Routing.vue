@@ -1,32 +1,32 @@
 <template lang="pug">
   div.routing-view
-    ContentNav.content-nav(
-      :parentPath="parentPath" 
-      :items="$router.options.routes[2].children")
-    transition(name="fade" mode="out-in")
-      router-view.routing-example
+    div.content-nav
+      ContentNav(
+        :parentPath="parentPath" 
+        :items="$router.options.routes[2].children"
+      )
+      p
+    transition(
+      name="fade" 
+      mode="out-in"
+    ) 
+      router-view.routing-example#cn
 </template>
 
 <script>
 //import {mapGetters} from 'vuex'
 import ContentNav from '../components/global/ContentNav'
+import { setInterval } from 'timers';
 export default {
   components: {
     ContentNav
   },
 
   computed: {
-    //I used to keep the route list inside the vuex instance. 
-    //Now I learned that I can directly acces to the routes list.
-    /*
-    ...mapGetters([
-      'contentNavItems'
-    ])
-    */
     parentPath() {
       return this.$router.options.routes[2].path
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -39,7 +39,7 @@ export default {
   }
 
   .routing-example{
-    grid-area: routing-example
+    grid-area: routing-example;
   }
 
   .content-nav {
@@ -58,6 +58,25 @@ export default {
       height: 100%;
       width: 15rem;
       position: fixed;
+    }
+  }
+
+  @media only screen and (min-width: 970px) {
+    .routing-view {
+      grid-template-columns: auto 15rem 5rem 30rem auto;
+      grid-template-areas: ". content-nav . routing-example .";
+      position: relative;
+    }
+    .content-nav {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      width: 15rem;
+      position: fixed;
+      left: 15%
+    }
+    .routing-example {
+      margin-top: 4rem; 
     }
   }
 

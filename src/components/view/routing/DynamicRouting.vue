@@ -6,7 +6,7 @@
       |Like "/routes/10". <br>
     
       div.id-setter
-        p Actually, let me help you:  <br>
+        p Actually, let me help you:<br>
         div.btn.btn-secondary(@click="pushToDynamicId") Go to 10
       
     p The route id is: {{id}}
@@ -41,17 +41,17 @@ export default {
 }
 </script>
 
-<style scoped>
-  .id-setter {
-    display: inline-flex;
-    align-items: center;
-    margin-bottom: 1rem;
-  }
-  .id-setter > p {
-    margin:0;
-  }
-  .dynamic-routing{
-    text-align: center;
-    margin-top: 1rem;
-  }
+<style lang="sass" scoped>
+  .id-setter
+    display: inline-flex
+    align-items: center
+    margin-bottom: 1rem 
+    p 
+      margin: 0
+    div
+      margin-left: 1rem
+
+  .dynamic-routing
+    text-align: center
+    margin-top: 1rem
 </style>

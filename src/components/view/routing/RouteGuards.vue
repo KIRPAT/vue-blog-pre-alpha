@@ -14,8 +14,7 @@
         p
           |Update the route, go to "/route-guards/10" via the following button. 
           |That button uses vue-router, normal HTTP requests won't work.<br>
-      
-        div.btn.btn-secondary(@click="pushToDynamicId") Go to 10    
+      div.btn.btn-secondary(@click="pushToDynamicId") Go to 10
 </template>
 
 <script>
@@ -46,40 +45,34 @@ export default {
 }
 </script>
 
-<style scoped>
-  .route-guard-container {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-template-areas: "center center center";
-    margin-left: 1rem;
-    margin-right: 1rem;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-  }
+<style lang="sass" scoped>
+  .route-guard-container
+      display: grid
+      grid-template-columns: auto auto auto
+      grid-template-areas: "center center center"
+      margin-left: 1rem
+      margin-right: 1rem
+      margin-top: 1rem
+      margin-bottom: 1rem
+  
+  @media only screen and (min-width: 600px) 
+    .route-guard-container 
+      grid-template-columns: auto minmax(auto, 500px) auto
+      grid-template-areas: ". center ."
+          
+  .route-guard-elements
+    grid-area: center
+    display: flex
+    flex-direction: column
+  
+  p
+    text-align: left
+    text-indent: 1rem
 
-  @media only screen and (min-width: 600px) {
-    .route-guard-container {
-      grid-template-columns: auto minmax(auto, 500px) auto;
-      grid-template-areas: ". center .";    
-    }
-  }
+  h3 
+    text-align: center
 
-  .route-guard-elements {
-    grid-area: center;
-  }
-
-  .route-guard-elements, .id-setter > p {
-    text-align: left;
-    text-indent: 1rem;
-  }
-
-  h3 {
-    text-align: center;
-  }
-
-  .btn {
-    align-self: center;
-    text-align: center;
-    text-indent: 0; 
-  }
+  .btn
+    text-indent: 0
+    margin: 0 auto
 </style>
