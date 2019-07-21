@@ -13,17 +13,14 @@ export default {
 }
 </script>
 
-<style scoped>
-  .home-message {
-    grid-area: home-page;
-    margin-left: 1rem;
-    margin-right: 1rem;
-  }  
+<style lang="sass" scoped>
+  .home-message
+    grid-area: home-page
+    margin-left: 1rem
+    margin-right: 1rem
 
-  @media only screen and (min-width: 600px){
-    .home-page-container {
-      display: grid;
-      grid-template-columns: auto [home-page]auto auto;
-    }  
-  }
+  @media only screen and (min-width: 600px)
+    .home-page-container 
+      display: grid
+      grid-template-columns: auto [home-page]auto auto
 </style>

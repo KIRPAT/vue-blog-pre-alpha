@@ -31,25 +31,20 @@ export default {
 }
 </script>
 
-<style scoped>
-  .super-quiz-layout {
-      display: grid;
+<style lang="sass" scoped>
+  .super-quiz-layout
+      display: grid
       grid-template-columns: 2% [content]auto 2%
-    }
+  
+  @media only screen and (min-width: 600px)
+    .super-quiz-layout 
+      grid-template-columns: auto [content]500px auto
 
-  @media only screen and (min-width: 600px){
-    .super-quiz-layout {
-      grid-template-columns: auto [content]500px auto;
-    }  
-  }
+  .super-quiz-container 
+    grid-area: content
+    margin-top: 3rem
 
-  .super-quiz-container {
-    grid-area: content;
-    margin-top: 3rem;
-  }  
-
-  .layout-wrapper {
-    height: 20rem;
-    background-color: aquamarine;
-  }
+  .layout-wrapper 
+    height: 20rem
+    background-color: aquamarine
 </style>

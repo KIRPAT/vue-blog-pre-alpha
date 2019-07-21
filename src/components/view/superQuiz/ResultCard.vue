@@ -44,6 +44,10 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+  @import "@/components/global/_reset.sass"
+  @include bootstrap-button-reset
+  @include margin-reset
+
   .result-card-layout
     display: grid
     grid-template-rows: [a] 3.5rem [b] 3rem  [c] 3.5rem [d]

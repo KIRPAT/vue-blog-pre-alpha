@@ -5,15 +5,9 @@
       div.text
         h2 Hello there! <br> This is KIRPAT. 
         p
-          | I have been practicing Vue, CSS (with grids) and a little bit of Bootstrap.
+          | I have been practicing Vue, CSS (with SASS & grids) and a little bit of Bootstrap.
           | Take a look at the examples from the navigation. <br>
 </template>
-
-<script>
-export default {
-
-}
-</script>
 
 <style lang="sass" scoped>
   .layout
@@ -34,6 +28,7 @@ export default {
       max-width: 10rem
       margin: 0 auto
       border-radius: 0.5rem
+  
   .text 
     margin-top: 1rem
     text-align: center
@@ -45,10 +40,11 @@ export default {
       display: grid
       grid-template-columns:[b] auto [c] auto
       grid-column-gap: 1rem
-      margin-top: 7rem
+      margin-top: 4rem
       img 
         grid-column-start: b
         max-width: 20rem
+  
     .text 
       grid-column-start: c
       margin: auto

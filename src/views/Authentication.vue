@@ -24,7 +24,6 @@
           h5 Password:
           input(v-model="form.password")
         button(@click="singUp" class="btn-signup") Sign Up
-
 </template>
 
 <script>
@@ -46,120 +45,93 @@ export default {
 }
 </script>
 
-<style scoped>
-  .btn:focus{
-    outline: none !important;
-    box-shadow: none !important;
-  }
+<style lang="sass" scoped>
+  @import "@/components/global/_reset.sass"
+  @include bootstrap-button-reset
 
-  .layout{
-    display: grid;
-    grid-template-columns:[a] auto;
-    overflow-y: auto;
-  }
+  .layout
+    display: grid
+    grid-template-columns:[a] auto
+    overflow-y: auto
   
+  .container
+    grid-area: a
+    display: grid
+    grid-template-columns: minmax(0, auto)
+    margin-top: 2rem
+    p
+      text-align: left
+      text-indent: 2rem
+    h1
+      text-align: center
 
-  .container{
-    grid-area: a;
-    display: grid;
-    grid-template-columns: minmax(0, auto);
-    margin-top: 2rem;
-  }
+  .btn
+    margin: 0 auto
+  .btn-signup
+      display: inline-block
+      margin: 0 auto
+      margin-bottom: 0.5rem
+      padding: 0.5rem 0.7rem
+      border-radius: 0.2rem
+      outline: none
+      background-color: rgb(36, 80, 85)
+      color: white
+  hr 
+    height: 0.1rem
 
-  .container > p {
-    text-align: left;
-    text-indent: 2rem;
-  }
+  code
+    overflow-x: auto
 
-  .btn {
-    margin: 0 auto;
-  }
+  pre
+    background-color:rgb(238, 238, 238)
 
-  .container > h1 {
-    text-align: center;
+  .firebase
+    display: grid
+    grid-template-columns: 4fr 1fr
+    grid-column-gap: 0.3rem 
+    input
+      border-radius: 0.3rem
+      padding: 0.3rem
 
-  }
+  .key
+    background-color: lightgreen 
+    padding: 1rem
+    border-radius: 0.5rem
 
-  hr {height: 0.1rem;}
+  .form
+    display: flex
+    flex-direction: column
+    background-color: cadetblue  
+    border-radius: 0.5rem
 
-  code {
-    overflow-x: auto;
-  }
+  .field-pair
+    width: 95%
+    margin: 0 auto  
+    margin-top: 0.5rem
+    margin-bottom: 0.5rem
 
-  pre {
-    background-color:rgb(238, 238, 238);
-  }
+  input
+    width: 100%
+    border-radius: 0.3rem
+    padding-left: 0.5rem
 
-  .firebase {
-    display: grid;
-    grid-template-columns: 4fr 1fr;
-    grid-column-gap: 0.3rem;
-  }
- 
-  .firebase > input {
-    border-radius: 0.3rem;
-    padding: 0.3rem;
-  }
-
-  .key{
-    background-color:lightgreen; 
-    padding: 1rem; 
-    border-radius: 0.5rem;
-  } 
-
-  .form{
-    background-color: cadetblue;  
-    border-radius: 0.5rem;
-  }
-
-  .field-pair {
-    width: 95%;
-    margin: 0 auto;  
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-  }
-
-  input {
-    width: 100%;
-    border-radius: 0.3rem;
-    padding-left: 0.5rem;
-  }
-
-  .btn-signup {
-    display: inline-block;
-    margin: 0 auto;
-    margin-bottom: 0.5rem;
-    padding: 0.5rem 0.7rem;
-    border-radius: 0.2rem;
-    outline: none;
-    background-color: rgb(36, 80, 85);
-    color: white;
-  }
-
-  h5 {
-    margin: 0;
-    color: white;
-  }
+  h5
+    margin: 0
+    color: white
   
   /* Tablet/PC */
-  @media only screen and (min-width: 600px){
+  @media only screen and (min-width: 600px)
+    .form
+      display: grid
     
-    .form{
-      display: grid;
-    }
-    
-    .layout {
-      grid-template-columns: auto [a]500px auto;
-    }
+    .layout
+      grid-template-columns: auto [a]500px auto
 
-    .field-pair {
-      width: 95%;
-      margin: 0 auto; 
-      display: grid;
-      grid-template-columns: 25% 75%;
-      margin-top: 0.5rem;
-      margin-bottom: 0.5rem;
-    }  
-  }
-
+    .field-pair
+      width: 95%
+      margin: 0 auto 
+      display: grid
+      grid-template-columns: 25% 75%
+      margin-top: 0.5rem
+      margin-bottom: 0.5rem
 </style>

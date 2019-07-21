@@ -76,69 +76,53 @@ export default {
 }
 </script>
 
-<style scoped> 
-  .btn:focus{
-    outline: none !important;
-    box-shadow: none !important;
-  }
+<style lang="sass" scoped> 
+  @import "@/components/global/_reset.sass"
+  @include bootstrap-button-reset
 
-  .layout{
-    display: grid;
-    grid-template-columns:[a] auto;
-    overflow-y: auto;
-  }
+  /* Mobile */
+  .layout
+    display: grid
+    grid-template-columns:[a] auto
+    overflow-y: auto
   
   /* Tablet/PC */
-  @media only screen and (min-width: 600px){
-    .layout {
-      grid-template-columns: auto [a]500px auto;
-    }  
-  }
+  @media only screen and (min-width: 600px)
+    .layout
+      grid-template-columns: auto [a]500px auto
 
-  .container{
-    grid-area: a;
+  .container
+    grid-area: a
+    display: grid
+    grid-template-columns: minmax(0, auto)
+    margin-top: 2rem
+    p 
+      text-align: left
+      text-indent: 2rem
+    h1
+      text-align: center
+
+  .btn
+    margin: 0 auto
+
+  hr  
+    height: 0.1rem
+
+  code
+    overflow-x: auto
+
+  pre
+    background-color:rgb(238, 238, 238)
+
+  .firebase
     display: grid;
-    grid-template-columns: minmax(0, auto);
-    margin-top: 2rem;
-  }
-
-  .container > p {
-    text-align: left;
-    text-indent: 2rem;
-  }
-
-  .btn {
-    margin: 0 auto;
-  }
-
-  .container > h1 {
-    text-align: center;
-
-  }
-
-  hr {height: 0.1rem;}
-
-  code {
-    overflow-x: auto;
-  }
-
-  pre {
-    background-color:rgb(238, 238, 238);
-  }
-
-  .firebase {
-    display: grid;
-    grid-template-columns: 4fr 1fr;
-    grid-column-gap: 0.3rem;
-  }
-  .firebase > input {
-    border-radius: 0.3rem;
-    padding: 0.3rem;
-  }
-
-  .key{
-    background-color:lightgreen; 
-    padding: 1rem; 
-    border-radius: 0.5rem;
-  } 
+    grid-template-columns: 4fr 1fr
+    grid-column-gap: 0.3rem
+    input
+      border-radius: 0.3rem
+      padding: 0.3rem
+  .key
+    background-color:lightgreen 
+    padding: 1rem
+    border-radius: 0.5rem
 </style>

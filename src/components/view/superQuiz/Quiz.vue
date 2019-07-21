@@ -39,6 +39,8 @@ export default {
 
 <style lang="sass" scoped>
   @import "@/components/global/_reset.sass"
+  @include bootstrap-button-reset
+  @include margin-reset
 
   .quiz-layout 
     display: grid
