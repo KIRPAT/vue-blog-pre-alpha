@@ -39,13 +39,8 @@ export default {
     transition: background 250ms ease-in-out, transform 150ms ease
     -webkit-appearance: none
     -moz-appearance: none
-    &:hover,
-    &:focus
-      background: #0053ba
-      outline: 1px solid #fff
-      outline-offset: -4px
     &:active
-      transform: scale(0.99);
+      transform: scale(0.95);
 
   #app
     display: grid
